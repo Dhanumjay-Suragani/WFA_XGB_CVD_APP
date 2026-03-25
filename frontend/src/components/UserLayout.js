@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import "./UserLayout.css";
 
 const links = [
@@ -14,16 +14,6 @@ const links = [
 ];
 
 export default function UserLayout() {
-  const navigate = useNavigate();
-
-  const logout = () => {
-    localStorage.removeItem("userEmail");
-    localStorage.removeItem("userName");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("patientId");
-    navigate("/login");
-  };
-
   return (
     <div className="user-layout-root">
       <header className="user-layout-header">
@@ -41,9 +31,6 @@ export default function UserLayout() {
             </NavLink>
           ))}
         </nav>
-        <button type="button" className="user-layout-logout" onClick={logout}>
-          Logout
-        </button>
       </header>
 
       <main className="user-layout-content">

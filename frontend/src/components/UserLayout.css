@@ -1,20 +1,28 @@
 .user-layout-root {
+  height: 100vh;
   min-height: 100vh;
   background: #f4f6f9;
+  width: 100%;
+  overflow-x: hidden; /* Avoid horizontal page scroll */
+  overflow-y: hidden; /* Remove outer vertical scroll */
+  display: flex;
+  flex-direction: column;
 }
 
 .user-layout-header {
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 16px;
   justify-content: space-between;
   background: #0d47a1;
   color: #fff;
-  padding: 10px 16px;
+  padding: 10px 32px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  flex: 0 0 auto;
 }
 
 .user-layout-brand {
@@ -28,6 +36,9 @@
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+  min-width: 0;
+  flex: 1;
+  justify-content: center;
 }
 
 .user-layout-link {
@@ -37,6 +48,7 @@
   border-radius: 999px;
   font-size: 13px;
   border: 1px solid transparent;
+  white-space: nowrap; /* Keep link labels uniform */
 }
 
 .user-layout-link:hover {
@@ -58,8 +70,28 @@
   font-size: 13px;
   cursor: pointer;
   white-space: nowrap;
+  flex: 0 0 auto;
+  margin-left: 0;
+  margin-right: 8px; /* Small inset to avoid clipping on the extreme edge */
 }
 
 .user-layout-content {
-  padding: 16px;
+  width: 100%;
+  padding: 24px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
+  overflow-y: hidden; /* Remove outer vertical scroll */
+}
+
+@media (max-width: 760px) {
+  .user-layout-header {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .user-layout-link {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
 }

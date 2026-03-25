@@ -1,44 +1,52 @@
-/* 1. Global Reset & Full Screen Centering */
+/* 1. Global Reset (do NOT center the whole body; that breaks UserLayout header). */
 html,
 body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    /* Center horizontally */
-    align-items: center;
-    /* Center vertically */
-    min-height: 100vh;
     background-color: #f8fafc;
-    /* Subtle light gray background */
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: block;
 }
 
 /* 2. The Main Card (Matches Figma Proportions) */
 .card {
     background: #ffffff;
-    padding: 20px 45px;
+    padding: 24px 32px;
     /* Generous internal padding */
     border-radius: 20px;
     width: 100%;
-    max-width: 420px;
-    /* Constrains width to match Figma "Android Compact" look */
-    text-align: center;
+    max-width: none; /* Let UserLayout/content width control stretching */
+    text-align: left;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     /* Soft medical-grade shadow */
     border: 1px solid #eef2f6;
     box-sizing: border-box;
 }
 
+/* Auth pages centered (Login/Signup/Forgot) */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+.auth-card {
+    max-width: 420px;
+    text-align: center;
+}
+
 /* 3. Splash Screen (Full Blue Background) */
 .splash-container {
     background-color: #1d61c1 !important;
     /* Brand Blue */
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -208,6 +216,13 @@ body {
     color: #1d61c1;
     font-weight: 700;
     cursor: pointer;
+}
+
+/* Ensure fixed header/nav doesn't create horizontal overflow on small screens */
+@media (max-width: 480px) {
+    .card {
+        padding: 20px 16px;
+    }
 }
 
 /* Navigation Header Row */

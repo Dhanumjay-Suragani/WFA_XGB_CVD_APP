@@ -1,11 +1,12 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import "./Form.css";
 
-export default function Results() {
+export default function Results({ data: propData }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const data = location.state;
+  const data = location.state || propData;
 
   if (!data) {
     return <h3>No Data Found</h3>;

@@ -51,26 +51,28 @@ export default function ForgotPassword() {
     };
 
     return (
-        <div className="card">
-            <h3 className="form-title">Reset Password</h3>
+        <div className="auth-page">
+            <div className="card auth-card">
+                <h3 className="form-title">Reset Password</h3>
 
-            {step === 1 && (
-                <>
-                    <input type="email" name="email" placeholder="Enter Email" onChange={handleChange} required />
-                    <button onClick={sendOTP} className="next-btn">Send OTP</button>
-                </>
-            )}
+                {step === 1 && (
+                    <>
+                        <input type="email" name="email" placeholder="Enter Email" onChange={handleChange} required />
+                        <button onClick={sendOTP} className="next-btn">Send OTP</button>
+                    </>
+                )}
 
-            {step === 2 && (
-                <form onSubmit={handleReset}>
-                    <input type="text" name="otp" placeholder="Enter OTP" onChange={handleChange} required />
-                    <input type="password" name="newPassword" placeholder="New Password" onChange={handleChange} required />
-                    <input type="password" name="confirmPassword" placeholder="Confirm Password" onChange={handleChange} required />
-                    <button type="submit" className="next-btn">Update Password</button>
-                </form>
-            )}
+                {step === 2 && (
+                    <form onSubmit={handleReset}>
+                        <input type="text" name="otp" placeholder="Enter OTP" onChange={handleChange} required />
+                        <input type="password" name="newPassword" placeholder="New Password" onChange={handleChange} required />
+                        <input type="password" name="confirmPassword" placeholder="Confirm Password" onChange={handleChange} required />
+                        <button type="submit" className="next-btn">Update Password</button>
+                    </form>
+                )}
 
-            <p onClick={() => navigate("/login")}>Back to Login</p>
+                <p onClick={() => navigate("/login")}>Back to Login</p>
+            </div>
         </div>
     );
 }

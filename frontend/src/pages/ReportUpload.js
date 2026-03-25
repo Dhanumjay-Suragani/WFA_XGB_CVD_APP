@@ -4,7 +4,7 @@ import "./Form.css";
 import API_BASE_URL from "../config";
 import { MODEL_FEATURES } from "../modelFeatures";
 
-export default function ReportUpload() {
+export default function ReportUpload({ onResult }) {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
@@ -52,6 +52,8 @@ export default function ReportUpload() {
       const result = await res.json();
 
       if (result.success) {
+        // Persist the prediction in App state (used as fallback by Results page).
+        if (typeof onResult === "function") onResult(result);
         navigate("/results", { state: result });
       } else {
         if (Array.isArray(result.missing_fields) && result.missing_fields.length) {

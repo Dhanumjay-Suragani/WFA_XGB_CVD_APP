@@ -15,6 +15,7 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import { getAdminToken } from "./services/adminApi";
 import UserLayout from "./components/UserLayout";
+import Settings from "./pages/Settings";
 
 function AdminRoute({ children }) {
   if (!getAdminToken()) {
@@ -51,7 +52,7 @@ function App() {
           <Route path="/results" element={<Results data={resultData} />} />
           <Route path="/history" element={<History />} />
           <Route path="/recommendations" element={<Recommendations />} />
-          <Route path="/settings" element={<Navigate to="/home" replace />} />
+          <Route path="/settings" element={<Settings />} />
         </Route>
 
         {/* Admin */}
