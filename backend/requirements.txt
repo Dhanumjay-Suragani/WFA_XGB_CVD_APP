@@ -1,0 +1,12 @@
+flask
+flask-cors
+pymongo
+python-dotenv
+pillow
+pytesseract
+numpy
+pandas
+joblib
+scikit-learn
+xgboost
+gunicorn

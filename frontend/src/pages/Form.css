@@ -1,0 +1,288 @@
+/* 1. Global Reset & Full Screen Centering */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    min-height: 100vh;
+    background-color: #f8fafc;
+    /* Subtle light gray background */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 2. The Main Card (Matches Figma Proportions) */
+.card {
+    background: #ffffff;
+    padding: 20px 45px;
+    /* Generous internal padding */
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    /* Constrains width to match Figma "Android Compact" look */
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Soft medical-grade shadow */
+    border: 1px solid #eef2f6;
+    box-sizing: border-box;
+}
+
+/* 3. Splash Screen (Full Blue Background) */
+.splash-container {
+    background-color: #1d61c1 !important;
+    /* Brand Blue */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.get-started-btn {
+    background: white;
+    color: #1d61c1;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 16px;
+    transition: opacity 0.2s;
+}
+
+/* 4. Form Components */
+.form-title {
+    color: #1d61c1;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.form-subtitle {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.form-row {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.form-row label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    /* Matches your gray input screenshot */
+    font-size: 14px;
+    color: #334155;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    border-color: #1d61c1;
+    background-color: #ffffff;
+}
+
+/* 5. Action Buttons */
+.next-btn,
+.submit-form-btn,
+.download-btn {
+    width: 100%;
+    background-color: #1d61c1;
+    color: #ffffff;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.next-btn:hover {
+    background-color: #154d9b;
+}
+
+/* 6. Navigation/Small Buttons */
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.nav-small-btn {
+    background: #f1f5f9;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 6px;
+    color: #475569;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* 7. Results Page Progress Bars */
+.results-container {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.result-item {
+    margin-bottom: 20px;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.progress-bg {
+    width: 100%;
+    height: 10px;
+    background-color: #f1f5f9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+}
+
+/* 8. Auth Extras */
+.separator {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.google-btn {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 11px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.link-text {
+    color: #1d61c1;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Navigation Header Row */
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+/* Container adjustment */
+.neat-form-container {
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header buttons */
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.nav-right-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* Visibility fixes for buttons */
+.nav-small-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #1d61c1;
+    /* Explicit border for visibility */
+    background: white;
+    color: #1d61c1;
+}
+
+.next-btn-blue {
+    background-color: #1d61c1 !important;
+    color: white !important;
+}
+
+/* Form Scrolling */
+.form-scroll-area {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 8px;
+    margin-bottom: 15px;
+}
+
+/* Hide scrollbar for Chrome/Safari but keep functionality */
+.form-scroll-area::-webkit-scrollbar {
+    width: 4px;
+}
+
+.form-scroll-area::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.form-row {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-row label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 4px;
+    display: block;
+}

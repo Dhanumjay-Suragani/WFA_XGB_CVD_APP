@@ -1,0 +1,65 @@
+.user-layout-root {
+  min-height: 100vh;
+  background: #f4f6f9;
+}
+
+.user-layout-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+  background: #0d47a1;
+  color: #fff;
+  padding: 10px 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.user-layout-brand {
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.user-layout-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.user-layout-link {
+  color: #e3f2fd;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  border: 1px solid transparent;
+}
+
+.user-layout-link:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.user-layout-link.active {
+  background: #fff;
+  color: #0d47a1;
+  font-weight: 700;
+}
+
+.user-layout-logout {
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: transparent;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.user-layout-content {
+  padding: 16px;
+}
