@@ -6,6 +6,7 @@ import joblib
 import numpy as np
 import pandas as pd
 import pytesseract
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 from PIL import Image
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -18,6 +19,10 @@ from bson import ObjectId
 from dotenv import load_dotenv
 from werkzeug.utils import secure_filename
 
+@app.route("/healthz")
+def health():
+    return {"status": "ok"}, 200
+    
 # ------------------ CONFIG ------------------
 load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 app = Flask(__name__)

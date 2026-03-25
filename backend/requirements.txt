@@ -10,3 +10,5 @@ joblib
 scikit-learn
 xgboost
 gunicorn
+pytesseract
+Pillow
