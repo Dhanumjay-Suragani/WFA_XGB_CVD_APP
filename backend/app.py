@@ -19,15 +19,16 @@ from bson import ObjectId
 from dotenv import load_dotenv
 from werkzeug.utils import secure_filename
 
-@app.route("/healthz")
-def health():
-    return {"status": "ok"}, 200
-    
+
+
 # ------------------ CONFIG ------------------
 load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")}})
 
+@app.route("/healthz")
+def health():
+    return {"status": "ok"}, 200
 
 def build_mongo_uri():
     """Use MONGO_URI, or build from MONGO_USER + MONGO_PASSWORD + MONGO_CLUSTER_HOST (password auto-encoded)."""
@@ -58,7 +59,7 @@ otp_col = None
 db_error = None
 
 if not MONGO_URI:
-    db_error = "Set MONGO_URI or MONGO_USER + MONGO_PASSWORD + MONGO_CLUSTER_HOST in backend .env"
+    print("⚠️ MongoDB not configured")
 else:
     try:
         client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)
@@ -118,7 +119,7 @@ def extract_bp_chol_from_ocr(text):
 
 
 # ------------------ ML MODEL (full_pipeline.pkl — do not modify artifact) ------------------
-MODEL_PATH = Path(__file__).resolve().parents[2] / "models" / "full_pipeline.pkl"
+MODEL_PATH = Path(__file__).resolve().parent / "models" / "full_pipeline.pkl"
 ml_bundle = None
 FEATURE_ORDER = None
 DEFAULT_FEATURES = {}
