@@ -25,6 +25,9 @@ from werkzeug.utils import secure_filename
 load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")}})
+@app.route("/")
+def home():
+    return "Backend is running", 200
 
 @app.route("/healthz")
 def health():
@@ -74,6 +77,9 @@ else:
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+@app.route("/usr/share/tesseract-ocr/5/tessdata")
+def block_tess():
+    return "Not a valid endpoint", 404
 
 def resolve_tesseract_executable():
     """Resolve Tesseract binary: TESSERACT_CMD, PATH, then common Windows install paths."""
@@ -104,6 +110,7 @@ elif _TESSERACT_EXE:
     _td = Path(_TESSERACT_EXE).resolve().parent / "tessdata"
     if _td.is_dir():
         os.environ["TESSDATA_PREFIX"] = str(_td)
+
 
 
 def extract_bp_chol_from_ocr(text):
