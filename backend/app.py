@@ -651,11 +651,6 @@ def reset_password():
 
 # ------------------ RUN ------------------
 if __name__ == "__main__":
-    # Render and similar hosts set PORT; bind on all interfaces in that case.
-    _port = int(os.getenv("PORT", "5000"))
-    _default_host = "0.0.0.0" if os.getenv("PORT") else "127.0.0.1"
-    app.run(
-        debug=os.getenv("FLASK_DEBUG", "true").lower() == "true",
-        host=os.getenv("HOST", _default_host),
-        port=_port,
-    )
+    import os
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
